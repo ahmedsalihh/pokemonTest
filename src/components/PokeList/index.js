@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Axios from 'axios';
 
 import Header from '../Header';
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
+import { Link } from 'react-router-dom';
 
-const PokeList = () => {
+const PokeList = ({ pathname, handleClick }) => {
   let [pokemons, setPokemons] = useState([]);
   let [generation] = useState(1);
 
@@ -30,8 +32,12 @@ const PokeList = () => {
           <h4>{pokemons.length} pokemons</h4>
         </div>
         {pokemons.map(poke => (
-          <Link to={`/pokemon/${poke.name}`} key={poke.name}>
-            <div className="pokemon-card">
+          <Link to={`${pathname}/${poke.name}`} key={poke.name}>
+            <div
+              className="pokemon-card"
+              // onClick={() => handleClick(pathname, poke.name)}
+              // key={poke.name}
+            >
               <img
                 src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${poke.name}.gif`}
                 alt={poke.name}
@@ -45,4 +51,16 @@ const PokeList = () => {
   );
 };
 
-export default PokeList;
+const mapStateToProps = state => {
+  return {
+    pathname: state.router.location.pathname,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    handleClick: (pathname, name) => dispatch(push(`${pathname}/${name}`)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokeList);
