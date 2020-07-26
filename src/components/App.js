@@ -1,32 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import Axios from 'axios';
-const App = () => {
-  let [pokemons, setPokemons] = useState([]);
+import React from 'react';
 
-  useEffect(() => {
-    function getPokemons() {
-      Axios.get('https://pokeapi.co/api/v2/generation/1')
-        .then(res => {
-          setPokemons(res.data.pokemon_species);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-    getPokemons();
-  }, []);
+import { Switch, Route, Redirect } from 'react-router-dom';
+
+import PokeList from './PokeList';
+import PokeDetail from './PokeDetail';
+
+const App = () => {
   return (
-    <div className='container'>
-      {pokemons.map(poke => (
-        <div className='block'>
-          <img
-            src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${poke.name}.gif`}
-            alt={poke.name}
-          />
-          <h4>{poke.name}</h4>
-        </div>
-      ))}
-    </div>
+    <React.Fragment>
+      <Switch>
+        <Route path='/pokemon/:name'>
+          <PokeDetail />
+        </Route>
+        <Route path='/pokemon'>
+          <PokeList />
+        </Route>
+        <Redirect exact from='/' to='/pokemon' />
+      </Switch>
+    </React.Fragment>
   );
 };
 export default App;
