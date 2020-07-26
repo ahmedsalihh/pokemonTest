@@ -1,7 +1,7 @@
-import PokeList from './components/PokeList';
-import NoMatch from './components/NoMatch';
-import PokeDetail from './components/PokeDetail';
-import RedirectToList from './components/RedirectToList';
+import PokeList from './views/PokeList';
+import NoMatch from './views/NoMatch';
+import PokeDetail from './views/PokeDetail';
+import RedirectToList from './views/RedirectToList';
 
 export const routes = [
   {
@@ -12,7 +12,7 @@ export const routes = [
   },
   {
     key: 'detail',
-    path: '/pokemon/:id',
+    path: '/pokemon/:name',
     component: PokeDetail,
   },
   {

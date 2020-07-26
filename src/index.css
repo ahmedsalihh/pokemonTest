@@ -39,6 +39,7 @@ a {
 
 .list-title {
   text-align: center;
+  line-height: 1em;
 }
 
 .pokemon-card {
@@ -66,7 +67,7 @@ a {
   text-align: center;
   margin: auto;
   width: 300px;
-  height: 450px;
+  height: 460px;
   border: 2px solid #000;
   background: #fff;
   margin-top: 10%;
@@ -80,7 +81,6 @@ a {
 }
 
 .detail-card img {
-  width: 12em;
   height: 12em;
 }
 
@@ -91,33 +91,13 @@ a {
 }
 
 @media screen and (max-width: 35.5em) {
-  /* 568px or less */
   .pokemon-card {
-    min-width: 60%;
-    float: left;
-    width: 98%;
-    height: 200px;
-    border: 2px solid #000;
-    margin: 1.5%;
-    background: #fff;
-    padding-top: 50px;
-    border-radius: 5px;
-    text-align: center;
+    min-width: 95%;
   }
 }
 
-@media screen and (min-width: 35.5em) and (max-width: 48em) {
-  /* 568px - 768px */
+@media screen and (min-width: 35.5em) and (max-width: 60em) {
   .pokemon-card {
     min-width: 45%;
-    float: left;
-    width: 30%;
-    height: 200px;
-    border: 2px solid #000;
-    margin: 1.5%;
-    background: #fff;
-    padding-top: 50px;
-    border-radius: 5px;
-    text-align: center;
   }
 }
