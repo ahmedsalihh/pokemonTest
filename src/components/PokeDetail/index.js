@@ -2,20 +2,20 @@ import React from 'react';
 
 const PokeDetail = () => {
   return (
-    <div className='container'>
-      <div className='detail-card'>
-        <a className='close' href='/pokemon'>
+    <div className="container">
+      <div className="detail-card">
+        <a className="close" href="/pokemon">
           X
         </a>
         <img
           src={`https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif`}
-          alt='charizard'
+          alt="charizard"
         />
         <h4>Charizard</h4>
-        <div className='specs'>
+        <div className="specs">
           <label>ID: </label>
           <span>4</span>
-          <div className='clr' />
+          <div className="clr" />
           <label>Type: </label>
           <span>flying</span>
           <br />

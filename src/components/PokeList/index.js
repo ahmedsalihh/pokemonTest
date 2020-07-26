@@ -22,16 +22,16 @@ const PokeList = () => {
   }, []);
 
   return (
-    <div id='pokelist'>
+    <div id="pokelist">
       <Header />
-      <div className='container'>
-        <div className='list-title'>
+      <div className="container">
+        <div className="list-title">
           <h2>Generation {generation}</h2>
           <h4>{pokemons.length} pokemons</h4>
         </div>
         {pokemons.map(poke => (
           <Link to={`/pokemon/${poke.name}`} key={poke.name}>
-            <div className='pokemon-card'>
+            <div className="pokemon-card">
               <img
                 src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${poke.name}.gif`}
                 alt={poke.name}

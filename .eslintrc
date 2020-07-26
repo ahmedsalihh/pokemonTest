@@ -1,0 +1,15 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "extends": ["plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "parser": "babel-eslint",
+  "rules": {
+    "no-console": 1,
+    "semi": "error",
+    "quotes": [1, "single"],
+    "arrow-parens": [2, "as-needed"]
+  }
+}
