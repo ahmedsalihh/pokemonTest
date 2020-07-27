@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PokemonCard from '../../components/PokemonCard';
 import PokeListInfo from '../../components/PokeListInfo';
+import Loading from '../../components/Loading';
 
 const PokeList = ({ pathname }) => {
   const [pokemons, setPokemons] = useState([]);
@@ -27,7 +28,7 @@ const PokeList = ({ pathname }) => {
       <Header />
       <PokeListInfo count={pokemons.length} generation={generation} />
       {isLoading ? (
-        <div>Loading...</div>
+        <Loading />
       ) : (
         pokemons.map(poke => <PokemonCard pathname={pathname} pokemon={poke} />)
       )}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 import PokemonDetailCard from '../../components/PokemonDetailCard';
+import Loading from '../../components/Loading';
 
 const PokeDetail = () => {
   const { name } = useParams();
@@ -18,7 +19,7 @@ const PokeDetail = () => {
 
   return (
     <div className="container">
-      {isLoading ? <div>loading...</div> : <PokemonDetailCard pokemon={pokemon} />}
+      {isLoading ? <Loading /> : <PokemonDetailCard pokemon={pokemon} />}
     </div>
   );
 };
