@@ -12,6 +12,9 @@ const App = ({ history }) => {
         {routes.map(route => (
           <Route {...route} />
         ))}
+
+
+
       </Switch>
     </ConnectedRouter>
   );
