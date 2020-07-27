@@ -1,7 +1,6 @@
 import PokeList from './views/PokeList';
 import NoMatch from './views/NoMatch';
 import PokeDetail from './views/PokeDetail';
-import RedirectToList from './views/RedirectToList';
 
 export const routes = [
   {
@@ -14,11 +13,6 @@ export const routes = [
     key: 'detail',
     path: '/pokemon/:name',
     component: PokeDetail,
-  },
-  {
-    key: 'redirect',
-    path: '/',
-    component: RedirectToList,
   },
   {
     key: 'nomatch',

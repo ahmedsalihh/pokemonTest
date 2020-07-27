@@ -1,11 +1,8 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 const NoMatch = () => {
-  return (
-    <div className="container">
-      <h1>404 Not Found</h1>
-    </div>
-  );
+  return <Redirect to="/pokemon" />;
 };
 
 export default NoMatch;

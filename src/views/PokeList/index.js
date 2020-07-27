@@ -3,34 +3,51 @@ import Axios from 'axios';
 
 import Header from '../../components/Header';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import PokemonCard from '../../components/PokemonCard';
 import PokeListInfo from '../../components/PokeListInfo';
 import Loading from '../../components/Loading';
+import PokeSearch from '../../components/PokeSearch';
 
 const PokeList = ({ pathname }) => {
   const [pokemons, setPokemons] = useState([]);
+  const [filteredPokemons, setFilteredPokemons] = useState([]);
   const [generation] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    function getPokemons() {
-      Axios.get(`https://pokeapi.co/api/v2/generation/${generation}`).then(res => {
-        setPokemons(res.data.pokemon_species);
-        setIsLoading(false);
-      });
-    }
     getPokemons();
   }, []);
+
+  const getPokemons = () => {
+    Axios.get(`https://pokeapi.co/api/v2/generation/${generation}`).then(res => {
+      const allPokemons = res.data.pokemon_species;
+      setPokemons(allPokemons);
+      setFilteredPokemons(allPokemons);
+      setIsLoading(false);
+    });
+  };
+
+  const handleSearch = searchText => {
+    setFilteredPokemons(
+      pokemons.filter(f => f.name.toLowerCase().includes(searchText.toLowerCase())),
+    );
+  };
+
+  const handleClear = () => {
+    setFilteredPokemons(pokemons);
+  };
 
   return (
     <div className="container">
       <Header />
       <PokeListInfo count={pokemons.length} generation={generation} />
+      <PokeSearch handleSearch={handleSearch} handleClear={handleClear} />
       {isLoading ? (
         <Loading />
       ) : (
-        pokemons.map(poke => <PokemonCard pathname={pathname} pokemon={poke} />)
+        filteredPokemons.map(poke => (
+          <PokemonCard pathname={pathname} pokemon={poke} />
+        ))
       )}
     </div>
   );

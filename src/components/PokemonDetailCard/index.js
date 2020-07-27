@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getFirstLetterCapitalized } from '../../utils';
+
 const PokemonDetailCard = ({ pokemon }) => {
   return (
     <div className="detail-card">
@@ -10,7 +12,7 @@ const PokemonDetailCard = ({ pokemon }) => {
         src={`https://img.pokemondb.net/sprites/black-white/anim/normal/${pokemon.name}.gif`}
         alt={`${pokemon.name}`}
       />
-      <h4>{pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h4>
+      <h4>{getFirstLetterCapitalized(pokemon.name)}</h4>
       <div className="specs">
         <label>ID: </label>
         <span>{pokemon.id}</span>
