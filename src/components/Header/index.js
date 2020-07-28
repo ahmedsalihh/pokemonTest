@@ -5,12 +5,12 @@ import PokemonLogo from '../../assets/img/pokemon-logo.png';
 
 const Header = () => {
   return (
-    <div className="header">
+    <div className="header" data-test="component-header">
       <div>
-        <img src={ImmflyLogo} alt="logo" />
+        <img src={ImmflyLogo} alt="immflylogo" />
       </div>
       <div>
-        <img src={PokemonLogo} alt="logo" />
+        <img src={PokemonLogo} alt="pokemon" />
       </div>
     </div>
   );

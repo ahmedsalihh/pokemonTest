@@ -4,7 +4,7 @@ import { getFirstLetterCapitalized } from '../../utils';
 
 const PokemonDetailCard = ({ pokemon }) => {
   return (
-    <div className="detail-card">
+    <div className="detail-card" data-test="component-pokemon-detail-card">
       <a className="close" href="/pokemon">
         X
       </a>

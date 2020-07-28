@@ -9,7 +9,7 @@ const PokeSearch = ({ handleSearch, handleClear }) => {
   };
 
   return (
-    <div className="searchForm">
+    <div className="searchForm" data-test="component-poke-search">
       <label>Search: </label>
       <input
         type="text"
